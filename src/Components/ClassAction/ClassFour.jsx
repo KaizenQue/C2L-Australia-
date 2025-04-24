@@ -1,8 +1,8 @@
 import React from 'react';
 import Frame139 from "../../assets/Frame 139.png";
-import Marquee from "../../assets/Ellipse 13.png";
 
-function SubFour() {
+import Marquee from "../../assets/Ellipse 13.png";
+function ClassFour() {
     return (
         <div className='bg-[rgba(192,159,83,0.25)]'>
             {/* Desktop View */}
@@ -12,7 +12,7 @@ function SubFour() {
                     <div className="w-full md:w-7/12 p-8 md:p-12">
                         {/* Main Heading */}
                         <h1 className="w-full md:w-[649px] text-[#C09F53] font-['Playfair_Display'] text-[64px] md:text-[96px] font-extrabold leading-[70px] md:leading-[100px]">
-                            What is Mesothelioma?<br />
+                            What is the Rideshare Class Action About?<br />
                         </h1>
 
                         {/* Description Section */}
@@ -20,21 +20,23 @@ function SubFour() {
                             {/* Mesothelioma is a cancer affecting the <span className="text-[#023437] font-bold">
                                 lining of the lungs, abdomen, or heart, primarily caused by asbestos exposure
                             </span>. Symptoms often appear decades later, even from minimal or unknowing exposure. */}
-                            Mesothelioma is a rare and aggressive cancer caused by asbestos exposure, affecting the <span className="text-[#023437] font-bold">protective lining of the lungs, abdomen, or heart. </span>This devastating condition often leads to physical, emotional, and financial challenges for patients and their families.
+                            Rideshare class actions seek compensation for drivers and passengers harmed by platform misconduct or negligence. These claims often involve
+
+                            issues like driver misclassification, denied workplace entitlements, unfair deactivations, and failure to address passenger safety complaints.
                         </p>
 
                         <p className="text-[rgba(2,52,55,0.69)] font-open-sans text-[18px] md:text-[24px] font-semibold w-full md:w-[551px] mb-6 mt-6 md:mt-10">
-                            If you have been diagnosed with mesothelioma and are exploring your legal options, don’t wait to get the support you need.
+                            Whether you’re a current or former driver, or a passenger affected by misconduct, you may be eligible to join an ongoing legal action depending on your experience.
                         </p>
 
                         {/* Understanding Lawsuits Section */}
-                        <h2 className="w-full md:w-[414px] text-[28px] md:text-[32px] font-bold leading-normal text-[#C09F53] font-sans">
-                            How Mesothelioma Claims <br />
+                        <h2 className="w-full md:w-[514px] text-[28px] md:text-[32px] font-bold leading-normal text-[#C09F53] font-sans">
+                            How Rideshare Class Actions<br />
                             Work in Australia
                         </h2>
 
                         <p className="text-[rgba(2,52,55,0.69)] font-open-sans text-[18px] md:text-[24px] font-semibold leading-normal w-full md:w-[547px]">
-                            Mesothelioma claims must be filed within strict legal timeframes, which vary by state. Some states offer statutory compensation, while others require court claims. Acting early helps protect your rights and strengthens your case. A legal expert can help you choose the best path forward.
+                            Class actions allow a group of people with similar complaints to take collective legal action. These lawsuits are typically run by law firms on a “no win, no fee” basis. Once you join, your case is handled as part of a broader group effort, and you only pay legal fees if a settlement is awarded.
                         </p>
                     </div>
                     <div>
@@ -43,7 +45,7 @@ function SubFour() {
 
                     {/* Right Content Section */}
                     <div className="w-full md:w-6/12 p-8 md:p-16 mt-6 md:mt-10">
-                        <h3 className="text-[#023437] font-sans text-xl md:text-2xl font-bold not-italic leading-normal uppercase mb-6">Latest Mesothelioma Lawsuit News in Australia</h3>
+                        <h3 className="text-[#023437] font-sans text-xl md:text-2xl font-bold not-italic leading-normal uppercase mb-6">Latest Rideshare Class Action Lawsuit News in Australia</h3>
 
                         {/* Common Law Claim */}
                         <div className="mb-12 inline-flex p-[40px_20px_20px_20px] md:p-[79px_35px_40px_40px] flex-col justify-end items-start gap-6 border border-[rgba(2,52,55,0.41)] md:-ml-[9%]">
@@ -52,7 +54,7 @@ function SubFour() {
                                 News
                             </h3>
                             <p className="w-full md:w-[419px] text-[#023437] font-open-sans text-[18px] md:text-[24px] font-normal leading-normal">
-                                In 2024, Queensland’s Supreme Court awarded 77-year-old Kim Martin over $2 million in damages after he was diagnosed with mesothelioma linked to James Hardie asbestos products. This included a record $800,000 for pain and suffering the first of its kind in the state.
+                                The appeal period for the $271.8M Uber class action settlement ended with no objections. A WA court hearing is set to dismiss a related protective case, marking a key step toward finalizing the settlement process
                             </p>
                         </div>
 
@@ -63,7 +65,7 @@ function SubFour() {
                                 News
                             </h3>
                             <p className="w-full md:w-[419px] text-[#023437] font-open-sans text-[18px] md:text-[24px] font-normal leading-normal">
-                                In 2025, Western Australia introduced a new law allowing mesothelioma victims to claim additional compensation if new asbestos-related illnesses develop later. This gives patients and families more flexibility in seeking justice.
+                               Compensation processing has begun for eligible claimants under the Uber settlement. Payouts are expected to roll out from late 2026 after claim reviews and approval stages are completed.
                             </p>
                         </div>
                     </div>
@@ -73,28 +75,29 @@ function SubFour() {
             {/* Mobile View */}
             <div className="block md:hidden p-6">
                 <h1 className="text-[#C09F53] font-['Playfair_Display'] text-[48px] font-extrabold leading-[50px] mb-6">
-                What is Mesothelioma?
+                    What is the Rideshare Class Action About?
                 </h1>
 
                 <p className="text-[rgba(2,52,55,0.69)] font-open-sans text-[16px] font-semibold mb-6">
                     {/* Mesothelioma is a cancer affecting the <span className="text-[#023437] font-bold">
                         lining of the lungs, abdomen, or heart, primarily caused by asbestos exposure
                     </span>. Symptoms often appear decades later, even from minimal or unknowing exposure. */}
-                Mesothelioma is a rare and aggressive cancer caused by asbestos exposure, affecting the <span className="text-[#023437] font-bold">protective lining of the lungs, abdomen, or heart. </span>This devastating condition often leads to physical, emotional, and financial challenges for patients and their families.
+                    Rideshare class actions seek compensation for drivers and passengers harmed by platform misconduct or negligence. These claims often involve
+
+                    issues like driver misclassification, denied workplace entitlements, unfair deactivations, and failure to address passenger safety complaints.
                 </p>
 
                 <p className="text-[rgba(2,52,55,0.69)] font-open-sans text-[16px] font-semibold mb-6">
-                If you have been diagnosed with mesothelioma and are exploring your legal options, don’t wait to get the support you need. </p>
+                    Whether you’re a current or former driver, or a passenger affected by misconduct, you may be eligible to join an ongoing legal action depending on your experience. </p>
 
                 <h2 className="text-[24px] font-bold leading-normal text-[#C09F53] font-sans mb-4">
-                How Mesothelioma Claims <br />
-                Work in Australia
+                    How Rideshare Class Actions<br />
+                    Work in Australia
                 </h2>
 
                 <p className="text-[rgba(2,52,55,0.69)] font-open-sans text-[16px] font-semibold leading-normal mb-8">
-                Mesothelioma claims must be filed within strict legal timeframes, which vary by state. Some states offer statutory compensation, while others require court claims. Acting early helps protect your rights and strengthens your case. A legal expert can help you choose the best path forward.
+                    Class actions allow a group of people with similar complaints to take collective legal action. These lawsuits are typically run by law firms on a “no win, no fee” basis. Once you join, your case is handled as part of a broader group effort, and you only pay legal fees if a settlement is awarded.
                 </p>
-
                 <div className="flex w-[1200px] h-[60px] -ml-11 mb-10 z-10 justify-end items-center gap-8 bg-[#023437] overflow-hidden relative mt-16">
                     <div className="w-full overflow-hidden py-2">
                         <div className="flex whitespace-nowrap animate-marquee">
@@ -109,31 +112,30 @@ function SubFour() {
                         </div>
                     </div>
                 </div>
-
                 <h3 className="text-[#023437] font-sans text-[18px] font-bold not-italic leading-normal uppercase mb-4">
-                Latest Mesothelioma Lawsuit News in Australia
+                    Latest Rideshare Class Action Lawsuit News in Australia
                 </h3>
 
                 <div className="mb-8 p-6 border border-[rgba(79,79,79,0.41)]">
                     <h3 className="text-[36px] font-['Playfair_Display'] font-extrabold leading-[40px] text-[#C09F53] mb-4">
-                    Legal Case<br />
-                    News
+                        Legal Case<br />
+                        News
                     </h3>
                     <p className="text-[#023437] font-open-sans text-[16px] font-normal leading-normal">
-                    In 2024, Queensland’s Supreme Court awarded 77-year-old Kim Martin over $2 million in damages after he was diagnosed with mesothelioma linked to James Hardie asbestos products. This included a record $800,000 for pain and suffering the first of its kind in the state. </p>
+                        The appeal period for the $271.8M Uber class action settlement ended with no objections. A WA court hearing is set to dismiss a related protective case, marking a key step toward finalizing the settlement process </p>
                 </div>
 
                 <div className="p-6">
                     <h3 className="text-[36px] font-['Playfair_Display'] font-extrabold leading-[40px] text-[#C09F53] mb-4">
-                    Compensation <br />
-                    News
+                        Compensation <br />
+                        News
                     </h3>
                     <p className="text-[#023437] font-open-sans text-[16px] font-normal leading-normal">
-                    In 2025, Western Australia introduced a new law allowing mesothelioma victims to claim additional compensation if new asbestos-related illnesses develop later. This gives patients and families more flexibility in seeking justice.</p>
+                       Compensation processing has begun for eligible claimants under the Uber settlement. Payouts are expected to roll out from late 2026 after claim reviews and approval stages are completed.</p>
                 </div>
             </div>
         </div>
     );
 }
 
-export default SubFour;
+export default ClassFour;

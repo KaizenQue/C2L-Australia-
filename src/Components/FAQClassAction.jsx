@@ -1,47 +1,47 @@
 import React, { useState } from 'react'
 
-function Faq() {
+function FaqClassAction() {
   const faqItems = [
     {
       id: 1,
-      question: 'What’s the difference between mass tort, class action, and personal injury claims?',
-      answer: 'Mass torts involve many individual claims about the same product or harm (like defective drugs). Class actions group many people into one legal case with shared claims (like privacy breaches). Personal injury claims usually involve individual accidents or negligence (like truck crashes or workplace injuries).',
+      question: 'What is rideshare class action about?',
+      answer: 'This class action seeks compensation for drivers who were denied workplace rights and for passengers who experienced harm or safety failures during a rideshare trip.',
       category: 'law',
       expanded: false
     },
     {
       id: 2,
-      question: 'How do I know if I qualify for a legal claim?',
-      answer: "If you've been injured, exposed to a harmful product, or impacted by company misconduct, you may be eligible. Each case is different, so it's best to request a free case review to assess your situation.",
+      question: 'I stopped driving years ago can I still join?',
+      answer: 'Yes. Even if you’re no longer active, you may still be eligible if you were affected during the time covered by the class action.',
       category: 'law',
       expanded: false
     },
     {
       id: 3,
-      question: 'Do I need to go to court to receive compensation?',
-      answer: 'Not usually. Most mass tort, personal injury, and class action claims are settled out of court. If your case qualifies, legal experts will handle the process and keep you informed.',
+      question: 'What if I drove to multiple platforms like Uber and Ola?',
+      answer: 'You may still qualify. Legal experts will assess your eligibility across all relevant platforms you worked with during the claim period.',
       category: 'law',
       expanded: false
     },
     {
       id: 4,
-      question: 'How much does it cost to join a lawsuit?',
-      answer: 'Most cases operate on a "no win, no fee" basis. That means you won’t pay anything unless compensation is recovered.',
+      question: 'Can passengers really join a class action too?',
+      answer: 'Yes. If you experienced unsafe rides, harassment, or your complaints were mishandled, you may be eligible to participate as a passenger.',
       category: 'law',
       expanded: false
     },
     {
       id: 5,
-      question: 'What happens after I submit my case for review?',
-      answer: "You'll be connected with legal professionals who will review your details, confirm your eligibility, and explain your options for moving forward all at no obligation.",
+      question: 'Will I need to go to court?',
+      answer: 'Not usually. Most class actions settle out of court. If you qualify, your claim will be handled as part of a group, and you’ll be kept informed at every step.',
       category: 'law',
       expanded: false
     }
     ,
     {
       id: 6,
-      question: 'What documents will we need to submit?',
-      answer: 'A legal expert will walk you through this, but it usually includes medical records, diagnosis reports, and any employment or exposure history available.',
+      question: "What kind of compensation could I receive?",
+      answer: "Compensation may include unpaid super, leave entitlements, reimbursement for work expenses, and damages for stress or safety-related harm.",
       category: 'law',
       expanded: false
     }
@@ -145,4 +145,4 @@ function Faq() {
   );
 }
 
-export default Faq
+export default FaqClassAction

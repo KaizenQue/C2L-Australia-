@@ -1,23 +1,21 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import Frame from "../../src/assets/Frame 19.png";
 import Searchbar from "../../src/assets/Search bar.png";
 import navicon from "../../src/assets/navicon.png";
+import { Facebook, Instagram, Linkedin } from 'lucide-react';
 import logoo from "../../src/assets/logoo.png";
 import call from "../../src/assets/call.png";
-import { Phone, Facebook, Instagram, Linkedin, Twitter } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from "framer-motion";
+import twitter from "../assets/twitter.png"
+import Frame7 from "../assets/Frame 7.png"
+
 
 const NavBar = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [isStatesDropdownOpen, setIsStatesDropdownOpen] = useState(false);
-
-    // Scroll to top whenever the route changes
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [location.pathname]);
 
     const australianStates = [
         'New South Wales',
@@ -29,6 +27,11 @@ const NavBar = () => {
         'Australian Capital Territory',
         'Northern Territory'
     ];
+    const targetRef = useRef(null);
+
+    const handleConsultationClick = () => {
+        navigate('/ContactUs');
+    };
 
     const menuItems = [
         { name: 'Home', path: '/' },
@@ -37,10 +40,10 @@ const NavBar = () => {
             path: '/Service',
 
         },
-        { name: 'Sub Services', path: '/SubService' },
+        // { name: 'Sub Services', path: '/SubService' },
         { name: 'About Us', path: '/About' },
         { name: 'Contact', path: '/ContactUs' },
-        { name: 'Masstort', path: '/Masstort' }
+        // { name: 'Masstort', path: '/Masstort' }
     ];
 
     return (
@@ -52,7 +55,7 @@ const NavBar = () => {
                         <img
                             src={Frame}
                             alt="Logo"
-                            className="w-[300px] h-[50px] ml-10"
+                            className="w-[300px] h-[50px] ml-10 cursor-pointer" onClick={() => navigate('/')}
                         />
                     </div>
 
@@ -65,14 +68,16 @@ const NavBar = () => {
 
                         <button
                             className="flex items-center justify-center bg-[#C09F53] rounded-[60px] px-5 py-3 cursor-pointer ml-6 border border-white"
-                            onClick={() => navigate('/ClaimForm')}
+                            onClick={handleConsultationClick}
                         >
+
                             <span className="font-sans font-bold text-base text-white">
                                 Free Consultation
                             </span>
                         </button>
+                        <div ref={targetRef}></div>
 
-                        <div className="relative ml-6">
+                        {/* <div className="relative ml-6">
                             <button
                                 className="flex px-24 py-3 justify-center items-center rounded-[60px] border border-[#023437] text-[#023437] font-sans text-base font-bold cursor-pointer"
                                 onClick={() => setIsStatesDropdownOpen(!isStatesDropdownOpen)}
@@ -102,7 +107,7 @@ const NavBar = () => {
                                     </div>
                                 </motion.div>
                             )}
-                        </div>
+                        </div> */}
 
                         <button
                             className="flex px-7 py-3 justify-center items-center rounded-[60px] border border-[#023437] text-[#023437] font-sans text-base font-bold cursor-pointer ml-6"
@@ -140,15 +145,46 @@ const NavBar = () => {
                         >
                             {isMenuOpen ? 'Close' : 'Menu'}
                         </button>
+
+                        {/* <div className="relative">
+                            <button
+                                className="flex px-3 py-2 justify-center items-center rounded-[60px] border border-[#023437] text-[#023437] font-sans text-xs font-bold cursor-pointer"
+                                onClick={() => setIsStatesDropdownOpen(!isStatesDropdownOpen)}
+                            >
+                                States
+                            </button>
+                            {isStatesDropdownOpen && (
+                                <motion.div
+                                    initial={{ opacity: 0, y: -10 }}
+                                    animate={{ opacity: 1, y: 5 }}
+                                    exit={{ opacity: 0, y: -10 }}
+                                    className="absolute right-0 mt-2 w-56 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none z-50"
+                                    style={{ right: '5px' }}
+                                >
+                                    <div className="py-4">
+                                        {australianStates.map((state) => (
+                                            <button
+                                                key={state}
+                                                className="block w-full px-4 py-2 text-left text-md text-gray-700 font-bold hover:bg-[#C09F53] hover:text-white"
+                                                onClick={() => {
+                                                    setIsStatesDropdownOpen(false);
+                                                }}
+                                            >
+                                                {state}
+                                            </button>
+                                        ))}
+                                    </div>
+                                </motion.div>
+                            )}
+                        </div> */}
                     </div>
+
                 </div>
             </div>
 
-            {/* Side Navigation - All in AnimatePresence */}
             <AnimatePresence>
                 {isMenuOpen && (
                     <>
-                        {/* Overlay */}
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
@@ -185,7 +221,7 @@ const NavBar = () => {
                             {/* Menu Items */}
                             <div className="flex flex-col p-6 space-y-2">
                                 {menuItems.map((item, index) => (
-                                    <div className='flex gap-4 -mt-16' key={item.name}>
+                                    <div className='flex gap-4 mt-10' key={item.name}>
                                         <img src={navicon} alt='icon' className='w-[45px] h-[45px] mt-3' />
                                         <motion.button
                                             initial={{ opacity: 0, x: 20 }}
@@ -220,16 +256,62 @@ const NavBar = () => {
                                         Call Now
                                     </button>
                                     <div className='flex gap-3 mt-2 justify-center items-center'>
-                                        {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                                            <motion.div
-                                                key={i}
-                                                whileHover={{ scale: 1.1 }}
-                                                whileTap={{ scale: 0.9 }}
-                                                className="rounded-full border border-white p-2"
-                                            >
-                                                <Icon size={16} />
-                                            </motion.div>
-                                        ))}
+                                      
+                                        <div className="flex space-x-4">
+                                            <div className="rounded-full border border-white p-2">
+                                                <a
+                                                    href="https://www.facebook.com/profile.php?id=61570446132760"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block text-black"  // Ensures proper sizing
+                                                >
+                                                    <Facebook
+                                                        size={18}
+                                                        whileTap={{ scale: 0.9 }}
+                                                        whileHover={{ scale: 1.1 }}
+                                                    />
+                                                </a>
+                                            </div>
+                                            <div className="rounded-full border border-white p-2">
+                                                <a
+                                                    href="https://www.instagram.com/connect2lawyer/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block text-black"  // Ensures proper sizing
+                                                >
+                                                    <Instagram
+                                                        size={18}
+                                                        whileTap={{ scale: 0.9 }}
+                                                        whileHover={{ scale: 1.1 }}
+                                                    />
+                                                </a>
+                                            </div>
+                                            <div className="rounded-full border border-white p-2">
+                                                <a
+                                                    href="https://www.linkedin.com/company/connect2lawyer/"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block text-black"  // Ensures proper sizing
+                                                >
+                                                    <Linkedin
+                                                        size={18}
+                                                        whileTap={{ scale: 0.9 }}
+                                                        whileHover={{ scale: 1.1 }}
+                                                    />
+                                                </a>
+                                            </div>
+
+                                            <div className="rounded-full border border-white p-2">
+                                                <a
+                                                    href="https://x.com/Connect2Lawyer"
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className="block text-black"  // Ensures proper sizing
+                                                >
+                                                    <img src={twitter} alt="" className="w-4 h-4" />
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <p className="w-[255px] ml-9 text-[#023437] font-['Open_Sans'] text-[16px] font-semibold not-italic leading-normal mt-1">
                                         123 Legal Avenue, Suite 456 Justice Tower Sydney, NSW 2000, Australia

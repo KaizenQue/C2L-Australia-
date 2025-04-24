@@ -12,7 +12,7 @@ import Faq from '../FAQ'
 
 function SubService() {
   return (
-    <div className='overflow-hidden '>
+    <div className='overflow-hidden'>
         <NavBar />
         <SubOne />
         <SubTwo />

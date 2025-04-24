@@ -10,36 +10,45 @@ function SubSix() {
             THESE GOVERNMENT-RUN PROGRAMS OFFER
           </p>
           <div className='mt-[-5px]'>
-            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[64px] font-extrabold leading-[70px] w-full ml-16 mt-10">
-              <span className="text-custom-light font-['Open Sans'] text-[128px] font-semibold leading-none mr-10">01</span> Medical Tests & Treatment</h1>
+            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[44px] font-extrabold leading-[70px] w-full ml-16 mt-10">
+              <span className="text-custom-light font-['Open Sans'] text-[80px] font-semibold leading-none mr-10">01</span>You worked in high-risk industries</h1>
             <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
-              Coverage for necessary examinations and treatment costs.
+              Such as construction, shipyards, factories, or mining where asbestos was commonly used.
             </p>
           </div>
           <div className="w-[1164px] h-px bg-[rgba(255,251,243,0.44)] ml-16 mt-16"></div>
           <div className='mt-[-5px]'>
-            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[64px] font-extrabold leading-[70px] w-full ml-16 mt-10">
-              <span className="text-custom-light font-['Open Sans'] text-[128px] font-semibold leading-none mr-10">02</span> Financial Support</h1>
+            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[44px] font-extrabold leading-[70px] w-full ml-16 mt-10">
+              <span className="text-custom-light font-['Open Sans'] text-[80px] font-semibold leading-none mr-10">02</span>You were exposed at home or second-hand</h1>
             <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
-              Compensation to assist with your recovery and expenses.
-            </p>
-          </div>
-          <div className="w-[1164px] h-px bg-[rgba(255,251,243,0.44)] ml-16 mt-16"></div>
-
-          <div className='mt-[-5px]'>
-            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[64px] font-extrabold leading-[70px] w-full ml-16 mt-10">
-              <span className="text-custom-light font-['Open Sans'] text-[128px] font-semibold leading-none mr-10">03</span> Financial Support</h1>
-            <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
-              Compensation to assist with your recovery and expenses.
+              For example, through contaminated clothing or living in asbestos-insulated buildings.
             </p>
           </div>
           <div className="w-[1164px] h-px bg-[rgba(255,251,243,0.44)] ml-16 mt-16"></div>
 
           <div className='mt-[-5px]'>
-            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[64px] font-extrabold leading-[70px] w-full ml-16 mt-10">
-              <span className="text-custom-light font-['Open Sans'] text-[128px] font-semibold leading-none mr-10">04</span> Financial Support</h1>
+            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[44px] font-extrabold leading-[70px] w-full ml-16 mt-10">
+              <span className="text-custom-light font-['Open Sans'] text-[80px] font-semibold leading-none mr-10">03</span> You are filing on behalf of a loved one</h1>
             <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
-              Compensation to assist with your recovery and expenses.
+              Family members can claim compensation if a loved one has passed due to mesothelioma.
+            </p>
+          </div>
+          <div className="w-[1164px] h-px bg-[rgba(255,251,243,0.44)] ml-16 mt-16"></div>
+
+          <div className='mt-[-5px]'>
+            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[44px] font-extrabold leading-[70px] w-full ml-16 mt-10">
+              <span className="text-custom-light font-['Open Sans'] text-[80px] font-semibold leading-none mr-10">04</span> You’ve received a recent diagnosis</h1>
+            <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
+              A confirmed mesothelioma diagnosis may trigger time-sensitive legal rights to claim.
+            </p>
+          </div>
+          <div className="w-[1164px] h-px bg-[rgba(255,251,243,0.44)] ml-16 mt-16"></div>
+
+          <div className='mt-[-5px]'>
+            <h1 className="text-[#FFFBF3] font-['Playfair_Display'] text-[44px] font-extrabold leading-[70px] w-full ml-16 mt-10">
+              <span className="text-custom-light font-['Open Sans'] text-[80px] font-semibold leading-none mr-10">05</span> You’ve already filed but developed a new condition</h1>
+            <p className="w-[805px] text-[#023437] font-open-sans text-[24px] font-normal leading-none mx-auto mt-4">
+              Some states, like WA, allow additional claims if new asbestos-related illnesses emerge.
             </p>
           </div>
         </div>

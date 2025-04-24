@@ -1,13 +1,17 @@
-import React from 'react';
+import React , { useEffect }from 'react';
 import Frame from "../../assets/Frame 111.png";
 import Frame2 from "../../assets/Frame 114.png";
 import Frame3 from "../../assets/Frame 115.png";
-
+import { useNavigate } from 'react-router-dom';
 import Framem1 from "../../assets/Frame 170.png";
 import Framem2 from "../../assets/Frame 1711.png";
 import Framem3 from "../../assets/Frame 1701.png";
 
 function ServiceTwo() {
+    const navigate = useNavigate();
+    useEffect(() => {
+            window.scrollTo(0, 0); 
+        }, []);
     return (
         <div >
             {/* Desktop View */}
@@ -19,9 +23,9 @@ function ServiceTwo() {
                     <h1 className="text-[#023437] font-['Playfair_Display'] text-[128px] font-extrabold leading-[130px]">
                         Services
                     </h1>
-                    <p className="text-[#023437] text-right font-open-sans text-[20px] font-[600] leading-[normal] mt-[-5%] w-[276px] float-end mr-[3%]">
+                    {/* <p className="text-[#023437] text-right font-open-sans text-[20px] font-[600] leading-[normal] mt-[-5%] w-[276px] float-end mr-[3%]">
                         Feedback from clients we've had the privilege to serve.
-                    </p>
+                    </p> */}
 
                     <div className="w-[1370px] h-[2px] bg-[rgba(2,52,55,0.54)]"></div>
                 </div>
@@ -31,7 +35,7 @@ function ServiceTwo() {
                         alt="Service 1"
                         className="h-full w-[91%] object-cover mt-3 ml-16 mb-[5%]"
                     />
-                    <button className="mt-[-19%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                    <button className="mt-[-19%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold" onClick={() => navigate("/MassTort")}>
                         Learn more
                     </button>
                 </div>
@@ -41,7 +45,7 @@ function ServiceTwo() {
                         alt="Service 2"
                         className="h-full w-[91%] object-cover mt-3 ml-16 mb-[5%]"
                     />
-                     <button className="mt-[-17%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                     <button className="mt-[-17%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold" onClick={() => navigate("/PIService")}>
                         Learn more
                     </button>
                 </div>
@@ -51,7 +55,7 @@ function ServiceTwo() {
                         alt="Service 3"
                         className="h-full w-[91%] object-cover mt-3 ml-16 mb-[5%]"
                     />
-                     <button className="mt-[-19%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                     <button className="mt-[-19%] ml-32 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold" onClick={() => navigate("/ClassService")}>
                         Learn more
                     </button>
                 </div>
@@ -68,9 +72,9 @@ function ServiceTwo() {
                     </h1> */}
                     <div className="w-[398px] h-[1px] bg-[rgba(2,52,55,0.54)] mt-4"></div>
 
-                    <p className="text-[#023437] font-['Open Sans'] text-[16px] font-[600] leading-normal mt-4 w-[273px]">
+                    {/* <p className="text-[#023437] font-['Open Sans'] text-[16px] font-[600] leading-normal mt-4 w-[273px]">
                         Feedback from clients we've had the privilege to serve.
-                    </p>
+                    </p> */}
 
                 </div>
                 <div className="mt-4">
@@ -79,7 +83,7 @@ function ServiceTwo() {
                         alt="Service 1"
                         className=" w-[100%]  object-cover mb-6"
                     />
-                    <button className="mt-[-25%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                    <button className="mt-[-25%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold" onClick={() => navigate('/MassTort')}>
                         Learn more
                     </button>
                 </div>
@@ -89,7 +93,7 @@ function ServiceTwo() {
                         alt="Service 2"
                         className=" w-[100%] object-cover mb-6"
                     />
-                    <button className="mt-[-25%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                    <button className="mt-[-25%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold"  onClick={() => navigate("/PIService")}>
                         Learn more
                     </button>
                 </div>
@@ -99,7 +103,7 @@ function ServiceTwo() {
                         alt="Service 3"
                         className=" w-[100%]  object-cover mb-6"
                     />
-                    <button className="mt-[-30%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold">
+                    <button className="mt-[-30%] ml-5 absolute z-10 inline-flex px-6 py-2.5 justify-center items-center rounded-[40px] border border-[rgba(255,251,243,0.80)] text-[#FFFBF3] font-['Open Sans'] text-sm font-bold" onClick={() => navigate("/ClassService")}>
                         Learn more
                     </button>
                 </div>

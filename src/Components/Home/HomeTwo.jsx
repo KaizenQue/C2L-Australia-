@@ -7,7 +7,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import "./HomeTwo.css"
 import Frame from "../../assets/Frame 260.png"
 import Frame2 from "../../assets/Group 88.png"
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, MenuItem } from '@mui/material';
 
 function HomeTwo() {
   const isMobile = useMediaQuery('(max-width:768px)');
@@ -130,10 +130,6 @@ function HomeTwo() {
       return;
     }
 
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setShowModal(true);
-    }, 1000);
     setIsSubmitting(true);
 
     const serviceId = 'service_3vbv36o';
@@ -151,7 +147,8 @@ function HomeTwo() {
     emailjs.send(serviceId, templateId, templateParams, publicKey)
       .then((response) => {
         console.log('Email sent successfully:', response);
-        setSuccessDialogOpen(true);
+
+        // Reset form data
         setFormData({
           firstName: '',
           lastName: '',
@@ -163,26 +160,33 @@ function HomeTwo() {
           privacyConsent: false,
           humanVerification: false
         });
-        setIsSubmitting(false);
+
+        // Show success dialog (if you still want this)
+        setSuccessDialogOpen(true);
+
+        // Show modal temporarily before redirect (if needed)
+        setShowModal(true);
+
+        // Redirect to thank you page after a short delay
+        setTimeout(() => {
+          window.location.href = '/Thankyou';
+        }, 100); // 1.5 second delay to allow user to see success message
       })
       .catch((error) => {
         console.error('Email sending error:', error);
         toast.error('Error submitting form. Please try again.');
+      })
+      .finally(() => {
         setIsSubmitting(false);
       });
-
-      const closeModal = () => {
-        setShowModal(false);
-      };
   };
-
   const handleCloseDialog = () => {
     setSuccessDialogOpen(false);
   };
   // const [isSubmitting, setIsSubmitting] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
-  
+
   // Desktop View
   if (!isMobile) {
     return (
@@ -202,7 +206,7 @@ function HomeTwo() {
           </div>
         </div>
 
-        <div className="p-[20px] mt-[-11%] ml-[4%] w-[1150px] h-[1200px] text-center bg-[#023437]">
+        <div className="p-[20px] mt-[-11%] ml-[4%] w-[1150px] h-[1100px] text-center bg-[#023437]">
           <form ref={formRef} onSubmit={handleSubmit} className='mt-[20%]'>
             <div className="flex mt-32">
               <div className="flex-1 px-4">
@@ -258,12 +262,31 @@ function HomeTwo() {
                   label="Select your concern"
                   variant="standard"
                   fullWidth
+                  select
                   value={formData.concern}
                   onChange={handleChange}
                   error={!!errors.concern}
                   helperText={errors.concern}
                   sx={textFieldStyle}
-                />
+                  InputLabelProps={{
+                    sx: {
+                      marginBottom: '80px', // adjust as needed
+                    },
+                  }}
+                >
+                  <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
+                    Mesothelioma Lawsuit
+                  </MenuItem>
+                  <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
+                    Truck Accident Claims
+                  </MenuItem>
+                  <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
+                    Rideshare Class Action Lawsuits
+                  </MenuItem>
+                  <MenuItem value="Other" sx={{ textAlign: 'left' }}>
+                    Other
+                  </MenuItem>
+                </TextField>
               </div>
             </div>
 
@@ -323,11 +346,11 @@ function HomeTwo() {
                     type="checkbox"
                     id="settlementHelp"
                     name="settlementHelp"
-                    checked={formData.settlementHelp || false}
+                    checked={formData.settlementHelp}
                     onChange={handleChange}
                     className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                   />
-                  <label htmlFor="settlementHelp" className="ml-3 block text-lg">
+                  <label htmlFor="settlementHelp" className="ml-3 block text-base">
                     I would be needing help to file a settlement.
                   </label>
                 </div>
@@ -338,28 +361,30 @@ function HomeTwo() {
                       type="checkbox"
                       id="privacyConsent"
                       name="privacyConsent"
-                      checked={formData.privacyConsent || false}
+                      checked={formData.privacyConsent}
                       onChange={handleChange}
                       className="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                       required
                     />
                   </div>
-                  <label htmlFor="privacyConsent" className="ml-3 block text-white text-lg text-left">
+                  <label htmlFor="privacyConsent" className="ml-3 block text-white text-base text-left">
                     <span className="block">
                       I agree to the{' '}
-                      <a href="/privacy-policy" className="underline hover:text-blue-200">
+                      <a href="/PrivacyPolicy" className="underline hover:text-blue-200">
                         privacy policy
                       </a>{' '}
                       and{' '}
-                      <a href="/disclaimer" className="underline hover:text-blue-200">
+                      <a href="/Disclaimer" className="underline hover:text-blue-200">
                         disclaimer
-                      </a>{' '}
-                      and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list.
+                      </a>.
                     </span>
                     <span className="block mt-2">
-                      I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
+                      I agree to the privacy policy and disclaimer and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
                     </span>
                   </label>
+                  {errors.privacyConsent && (
+                    <p className="mt-2 text-sm text-red-300">{errors.privacyConsent}</p>
+                  )}
                 </div>
 
                 <div className="flex items-start">
@@ -367,14 +392,17 @@ function HomeTwo() {
                     type="checkbox"
                     id="humanVerification"
                     name="humanVerification"
-                    checked={formData.humanVerification || false}
+                    checked={formData.humanVerification}
                     onChange={handleChange}
                     className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                     required
                   />
-                  <label htmlFor="humanVerification" className="ml-3 block text-lg">
-                    Please click this box so we know you're a person and not a computer
+                  <label htmlFor="humanVerification" className="ml-3 block text-base">
+                    Please verify you're human
                   </label>
+                  {errors.humanVerification && (
+                    <p className="mt-2 text-sm text-red-300">{errors.humanVerification}</p>
+                  )}
                 </div>
               </div>
             </div>
@@ -428,7 +456,7 @@ function HomeTwo() {
   return (
     <>
 
-      <div className='mt-16 px-4'>
+      <div className='mt-10 px-4'>
         <div className="flex h-[60px] -rotate-[4.013deg] justify-end items-center bg-[#C09F53] overflow-hidden relative mt-5 mx-[-16px]">
           <div className="w-full overflow-hidden py-2">
             <div className="flex whitespace-nowrap animate-marquee">
@@ -506,15 +534,31 @@ function HomeTwo() {
                 label="Select your concern"
                 variant="standard"
                 fullWidth
+                select
                 value={formData.concern}
                 onChange={handleChange}
                 error={!!errors.concern}
                 helperText={errors.concern}
-                sx={{
-                  ...textFieldStyle,
-                  marginBottom: '30px'
+                sx={textFieldStyle}
+                InputLabelProps={{
+                  sx: {
+                    marginBottom: '80px', // adjust as needed
+                  },
                 }}
-              />
+              >
+                <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
+                  Mesothelioma Lawsuit
+                </MenuItem>
+                <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
+                  Truck Accident Claims
+                </MenuItem>
+                <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
+                  Rideshare Class Action Lawsuits
+                </MenuItem>
+                <MenuItem value="Other" sx={{ textAlign: 'left' }}>
+                  Other
+                </MenuItem>
+              </TextField>
 
               <TextField
                 id="caseHistory"
@@ -535,71 +579,66 @@ function HomeTwo() {
               />
             </div>
 
-            <div className="mt-6 space-y-4 text-white">
+            <div className="mt-8 space-y-6 text-white text-sm leading-relaxed">
+              {/* Settlement Help */}
               <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="settlementHelp"
-                  name="settlementHelp"
-                  checked={formData.settlementHelp || false}
-                  onChange={handleChange}
-                  className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                />
+                <div className="flex-shrink-0 h-5 w-5 mt-0.5"> {/* Container for consistent sizing */}
+                  <input
+                    type="checkbox"
+                    id="settlementHelp"
+                    name="settlementHelp"
+                    checked={formData.settlementHelp || false}
+                    onChange={handleChange}
+                    className="h-5 w-5 accent-[#C09F53]"
+                  />
+                </div>
+                <label htmlFor="settlementHelp" className="ml-3 block text-left">
+                  I would be needing help to file a settlement.
+                </label>
               </div>
 
-              <label htmlFor="settlementHelp" className='mt-[-10%]'>
-                I would be needing help to file a settlement.
-              </label>
+              {/* Privacy Consent */}
               <div className="flex items-start">
-                <div className="flex-shrink-0 mt-1">
+                <div className="flex-shrink-0 h-5 w-5 mt-0.5">
                   <input
                     type="checkbox"
                     id="privacyConsent"
                     name="privacyConsent"
                     checked={formData.privacyConsent || false}
                     onChange={handleChange}
-                    className="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                    className="h-5 w-5 accent-[#C09F53]"
                     required
                   />
                 </div>
-                <label htmlFor="privacyConsent" className="ml-3 block text-white text-base text-left">
-                  <span className="block">
-                    I agree to the{' '}
-                    <a href="/privacy-policy" className="underline hover:text-blue-200">
-                      privacy policy
-                    </a>{' '}
-                    and{' '}
-                    <a href="/disclaimer" className="underline hover:text-blue-200">
-                      disclaimer
-                    </a>.
-                  </span>
-                  <span className="block mt-2">
-                    and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
-                  </span>
+                <label htmlFor="privacyConsent" className="ml-3 block text-left">
+                  I agree to the privacy policy and disclaimer and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
                 </label>
               </div>
 
+              {/* Human Verification */}
               <div className="flex items-start">
-                <input
-                  type="checkbox"
-                  id="humanVerification"
-                  name="humanVerification"
-                  checked={formData.humanVerification || false}
-                  onChange={handleChange}
-                  className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
-                  required
-                />
-                <label htmlFor="humanVerification" className="ml-3 block text-base">
-                  Please verify you're human
+                <div className="flex-shrink-0 h-5 w-5 mt-0.5">
+                  <input
+                    type="checkbox"
+                    id="humanVerification"
+                    name="humanVerification"
+                    checked={formData.humanVerification || false}
+                    onChange={handleChange}
+                    className="h-5 w-5 accent-[#C09F53]"
+                    required
+                  />
+                </div>
+                <label htmlFor="humanVerification" className="ml-3 block text-left">
+                  Please click this box so we know you're a person and not a computer
                 </label>
               </div>
             </div>
 
             <button
-        type="submit"
-        disabled={isSubmitting}
-        onClick={handleSubmit}
-        className="
+              type="submit"
+              disabled={isSubmitting}
+              onClick={handleSubmit}
+              className="
           w-full
           h-[50px]                     
           justify-center
@@ -622,21 +661,21 @@ function HomeTwo() {
           mt-8
           mb-4
         "
-      >
-        {isSubmitting ? 'Submitting...' : 'Begin Here'}
-      </button>
+            >
+              {isSubmitting ? 'Submitting...' : 'Begin Here'}
+            </button>
 
-      {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-lg p-8 max-w-md w-full">
-            <h2 className="text-2xl font-bold text-[#023437] mb-4">Thank You!</h2>
-            <p className="text-gray-700 mb-6">
-              Your submission has been received. We'll get back to you soon.
-            </p>
-            <button
-              onClick={closeModal}
-              className="
+            {/* Modal */}
+            {showModal && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+                <div className="bg-white rounded-lg p-8 max-w-md w-full">
+                  <h2 className="text-2xl font-bold text-[#023437] mb-4">Thank You!</h2>
+                  <p className="text-gray-700 mb-6">
+                    Your submission has been received. We'll get back to you soon.
+                  </p>
+                  <button
+                    onClick={closeModal}
+                    className="
                 w-full
                 h-[50px]                     
                 justify-center
@@ -656,13 +695,13 @@ function HomeTwo() {
                 transition-colors           
                 duration-200
               "
-            >
-              Close
-            </button>
-          </div>
-        </div>
-      )}
-    
+                  >
+                    Close
+                  </button>
+                </div>
+              </div>
+            )}
+
           </form>
         </div>
 

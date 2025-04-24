@@ -1,47 +1,47 @@
 import React, { useState } from 'react'
 
-function Faq() {
+function FaqTruck() {
   const faqItems = [
     {
       id: 1,
-      question: 'What’s the difference between mass tort, class action, and personal injury claims?',
-      answer: 'Mass torts involve many individual claims about the same product or harm (like defective drugs). Class actions group many people into one legal case with shared claims (like privacy breaches). Personal injury claims usually involve individual accidents or negligence (like truck crashes or workplace injuries).',
+      question: 'What kind of compensation is available for truck accident victims?',
+      answer: 'You may receive support for medical expenses, lost income, property damage, rehabilitation, and emotional trauma.',
       category: 'law',
       expanded: false
     },
     {
       id: 2,
-      question: 'How do I know if I qualify for a legal claim?',
-      answer: "If you've been injured, exposed to a harmful product, or impacted by company misconduct, you may be eligible. Each case is different, so it's best to request a free case review to assess your situation.",
+      question: 'Can I still claim if the accident was months ago?',
+      answer: 'Yes, each state has time limits (usually 3 years). Acting early ensures stronger evidence and better outcomes.',
       category: 'law',
       expanded: false
     },
     {
       id: 3,
-      question: 'Do I need to go to court to receive compensation?',
-      answer: 'Not usually. Most mass tort, personal injury, and class action claims are settled out of court. If your case qualifies, legal experts will handle the process and keep you informed.',
+      question: 'What if I was partially at fault?',
+      answer: 'You may still be eligible. Legal experts can help assess the situation and determine comparative liability.',
       category: 'law',
       expanded: false
     },
     {
       id: 4,
-      question: 'How much does it cost to join a lawsuit?',
-      answer: 'Most cases operate on a "no win, no fee" basis. That means you won’t pay anything unless compensation is recovered.',
+      question: 'Can family members of deceased victims file a claim?',
+      answer: 'Yes. If a loved one has passed away due to a truck accident, you may be entitled to compensation through a dependency or wrongful death claim.',
       category: 'law',
       expanded: false
     },
     {
       id: 5,
-      question: 'What happens after I submit my case for review?',
-      answer: "You'll be connected with legal professionals who will review your details, confirm your eligibility, and explain your options for moving forward all at no obligation.",
+      question: 'Do I need to go to court?',
+      answer: 'Not necessarily. Many claims are settled out of court. The legal experts we connect you with will explain the best course of action.',
       category: 'law',
       expanded: false
     }
     ,
     {
       id: 6,
-      question: 'What documents will we need to submit?',
-      answer: 'A legal expert will walk you through this, but it usually includes medical records, diagnosis reports, and any employment or exposure history available.',
+      question: "What if I don't have all the documents yet?",
+      answer: "That’s okay. The legal expert we connect you with can help you gather necessary reports, evidence, and paperwork even if the accident happened months ago.",
       category: 'law',
       expanded: false
     }
@@ -145,4 +145,4 @@ function Faq() {
   );
 }
 
-export default Faq
+export default FaqTruck

@@ -5,11 +5,16 @@ import "leaflet/dist/leaflet.css";
 import React from "react";
 import HomePage from "./Components/Home/HomePage"
 import Footer from "./Components/Footer"
+import Thankyou from "./Components/Thankyou"
+import PrivacyPolicy from "./Components/PrivacyPolicy"
+import Disclaimer from "./Components/Disclaimer"
 import Service from "./Components/ServiceOverview/ServiceOverview"
 import SubService from './Components/SubService/SubService';
 import About from './Components/AboutUs/About';
 import ContactUs from "./Components/ContactUs/ContactUs"
 import MassTort from './Components/MassTort/MassTort';
+import PIService from './Components/PersonalInjury/PIService';
+import ClassService from './Components/ClassAction/ClassService';
 import { ParallaxProvider } from 'react-scroll-parallax';
 
 function App() {
@@ -48,6 +53,26 @@ function App() {
     {
       path: '/Footer',
       element: <Footer />,
+    },
+    {
+      path: '/PIService',
+      element: <PIService />,
+    },
+    {
+      path: '/Thankyou',
+      element: <Thankyou />,
+    },
+    {
+      path: '/Disclaimer',
+      element: <Disclaimer />,
+    },
+    {
+      path: '/PrivacyPolicy',
+      element: <PrivacyPolicy />,
+    },
+    {
+      path: '/ClassService',
+      element: <ClassService />,
     },
     {
       path: '*',

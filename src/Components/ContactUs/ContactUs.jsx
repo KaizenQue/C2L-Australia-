@@ -1,18 +1,21 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import NavBar from "../NavBar";
 import Vector from "../../assets/Vector (1).png";
 import map from "../../assets/map.png";
 import Frame17 from "../../assets/Frame 17.png";
 import Frame from "../../assets/Frame 262 (2).png";
 import TextField from '@mui/material/TextField';
+import emailjs from '@emailjs/browser';
 import Footer from '../Footer';
-import Frame2 from "../../assets/Group 33.png";
-import { useMediaQuery } from '@mui/material';
+import { useMediaQuery, MenuItem } from '@mui/material';
 import { toast } from 'react-toastify';
 import HomeSeven from '../Home/HomeSeven';
 // import emailjs from 'emailjs-com';
 
 function ContactUs() {
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
     const isMobile = useMediaQuery('(max-width:768px)');
     const textFieldStyle = {
         '& .MuiInputLabel-root': {
@@ -153,7 +156,8 @@ function ContactUs() {
         emailjs.send(serviceId, templateId, templateParams, publicKey)
             .then((response) => {
                 console.log('Email sent successfully:', response);
-                setSuccessDialogOpen(true);
+
+                // Reset form data
                 setFormData({
                     firstName: '',
                     lastName: '',
@@ -165,11 +169,23 @@ function ContactUs() {
                     privacyConsent: false,
                     humanVerification: false
                 });
-                setIsSubmitting(false);
+
+                // Show success dialog (if you still want this)
+                setSuccessDialogOpen(true);
+
+                // Show modal temporarily before redirect (if needed)
+                setShowModal(true);
+
+                // Redirect to thank you page after a short delay
+                setTimeout(() => {
+                    window.location.href = '/Thankyou';
+                }, 100); // 1.5 second delay to allow user to see success message
             })
             .catch((error) => {
                 console.error('Email sending error:', error);
                 toast.error('Error submitting form. Please try again.');
+            })
+            .finally(() => {
                 setIsSubmitting(false);
             });
     };
@@ -190,7 +206,7 @@ function ContactUs() {
                         </div>
                         <div className="mt-8 text-left">
                             <p className="text-[#023437] font-sans text-lg font-bold underline">
-                                +61470695167
+                            (888) 202-1350
                             </p>
                             <p className="text-[#023437] font-sans text-lg font-bold underline mt-2">
                                 teamup@connect2lawyer.com.au
@@ -267,12 +283,32 @@ function ContactUs() {
                                     label="Select your concern"
                                     variant="standard"
                                     fullWidth
+                                    select
                                     value={formData.concern}
                                     onChange={handleChange}
                                     error={!!errors.concern}
                                     helperText={errors.concern}
                                     sx={textFieldStyle}
-                                />
+                                    InputLabelProps={{
+                                        sx: {
+                                            marginBottom: '80px', // adjust as needed
+                                        },
+                                    }}
+                                >
+                                    <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
+                                        Mesothelioma Lawsuit
+                                    </MenuItem>
+                                    <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
+                                        Truck Accident Claims
+                                    </MenuItem>
+                                    <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
+                                        Rideshare Class Action Lawsuits
+                                    </MenuItem>
+                                    <MenuItem value="Other" sx={{ textAlign: 'left' }}>
+                                        Other
+                                    </MenuItem>
+                                </TextField>
+
                                 <TextField
                                     id="caseHistory"
                                     name="caseHistory"
@@ -322,47 +358,66 @@ function ContactUs() {
                             <div className="mt-8 space-y-6 text-white text-sm leading-relaxed">
                                 {/* Settlement Help */}
                                 <div className="flex items-start">
-                                    <input
-                                        type="checkbox"
-                                        id="settlementHelp"
-                                        name="settlementHelp"
-                                        checked={formData.settlementHelp || false}
-                                        onChange={handleChange}
-                                        className="h-5 w-5 mt-1 accent-[#C09F53]"
-                                    />
-                                    <label htmlFor="settlementHelp" className="ml-3">
+                                    <div className="flex-shrink-0 h-5 w-5 mt-0.5"> {/* Container for consistent sizing */}
+                                        <input
+                                            type="checkbox"
+                                            id="settlementHelp"
+                                            name="settlementHelp"
+                                            checked={formData.settlementHelp || false}
+                                            onChange={handleChange}
+                                            className="h-5 w-5 accent-[#C09F53]"
+                                        />
+                                    </div>
+                                    <label htmlFor="settlementHelp" className="ml-3 block">
                                         I would be needing help to file a settlement.
                                     </label>
                                 </div>
 
                                 {/* Privacy Consent */}
-                                <div className="flex items-start">
-                                    <input
-                                        type="checkbox"
-                                        id="privacyConsent"
-                                        name="privacyConsent"
-                                        checked={formData.privacyConsent || false}
-                                        onChange={handleChange}
-                                        className="h-5 w-5 mt-1 accent-[#C09F53]"
-                                        required
-                                    />
-                                    <label htmlFor="privacyConsent" className="ml-3">
-                                        I agree to the privacy policy and disclaimer and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list. I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
+                                <div className="flex items-start mt-4">
+                                    <div className="flex-shrink-0 mt-1">
+                                        <input
+                                            type="checkbox"
+                                            id="privacyConsent"
+                                            name="privacyConsent"
+                                            checked={formData.privacyConsent || false}
+                                            onChange={handleChange}
+                                            className="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                            required
+                                        />
+                                    </div>
+                                    <label htmlFor="privacyConsent" className="ml-3 block text-white text-lg text-left">
+                                        <span className="block">
+                                            I agree to the{' '}
+                                            <a href="/Privacypolicy" className="underline hover:text-blue-200">
+                                                privacy policy
+                                            </a>{' '}
+                                            and{' '}
+                                            <a href="/Disclaimer" className="underline hover:text-blue-200">
+                                                disclaimer
+                                            </a>{' '}
+                                            and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list.
+                                        </span>
+                                        <span className="block mt-2">
+                                            I understand that I may be contacted by telephone, email, text message or mail regarding case options and that I may be called using automatic dialing equipment. Message and data rates may apply. My consent does not require purchase. This is Legal advertising.
+                                        </span>
                                     </label>
                                 </div>
 
                                 {/* Human Verification */}
                                 <div className="flex items-start">
-                                    <input
-                                        type="checkbox"
-                                        id="humanVerification"
-                                        name="humanVerification"
-                                        checked={formData.humanVerification || false}
-                                        onChange={handleChange}
-                                        className="h-5 w-5 mt-1 accent-[#C09F53]"
-                                        required
-                                    />
-                                    <label htmlFor="humanVerification" className="ml-3">
+                                    <div className="flex-shrink-0 h-5 w-5 mt-0.5">
+                                        <input
+                                            type="checkbox"
+                                            id="humanVerification"
+                                            name="humanVerification"
+                                            checked={formData.humanVerification || false}
+                                            onChange={handleChange}
+                                            className="h-5 w-5 accent-[#C09F53]"
+                                            required
+                                        />
+                                    </div>
+                                    <label htmlFor="humanVerification" className="ml-3 block">
                                         Please click this box so we know you're a person and not a computer
                                     </label>
                                 </div>
@@ -372,6 +427,7 @@ function ContactUs() {
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
+
                                 className="
         inline-flex
         h-12
@@ -396,10 +452,10 @@ function ContactUs() {
                         </form>
                     </div>
 
-                    <div>
-                        <HomeSeven />
-                        <Footer />
-                    </div>
+                    {/* <div className="bg-[#023437] py-10 px-6 w-full absolute"> */}
+                    <HomeSeven />
+                    <Footer />
+                    {/* </div> */}
                 </div>
             </>
         );
@@ -418,7 +474,7 @@ function ContactUs() {
                             We're here to help
                         </h1>
                         <p class="text-[#023437] absolute font-sans text-[32px] not-italic font-bold underline underline-auto underline-solid underline-from-font l*owercase mt-[50%]">
-                            +61470695167
+                        (888) 202-1350
                         </p>
                         <p class="text-[#023437] absolute font-sans text-[32px] not-italic font-bold underline underline-auto underline-solid underline-from-font lowercase mt-[60%]">
                             teamup@connect2lawyer.com.au
@@ -440,7 +496,7 @@ function ContactUs() {
                     Let’s Review Your Case Today.
                 </h1>
                 <p class="w-[505px] text-[#FFFBF3] font-open-sans text-[24px] font-semibold leading-none text-left m-10">
-                    Take the first step toward justice—complete your free case evaluation today.
+                    Take the first step toward justice-complete your free case evaluation today.
                 </p>
                 <form ref={formRef} onSubmit={handleSubmit} className='mt-[5%] w-[896px] h-[847px] ml-[35%]'>
                     <div className="flex mt-16">
@@ -497,12 +553,33 @@ function ContactUs() {
                                 label="Select your concern"
                                 variant="standard"
                                 fullWidth
+                                select
                                 value={formData.concern}
                                 onChange={handleChange}
                                 error={!!errors.concern}
                                 helperText={errors.concern}
                                 sx={textFieldStyle}
-                            />
+                                InputLabelProps={{
+                                    sx: {
+                                        marginBottom: '80px', // adjust as needed
+                                    },
+                                }}
+                            >
+                                <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
+                                    Mesothelioma Lawsuit
+                                </MenuItem>
+                                <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
+                                    Truck Accident Claims
+                                </MenuItem>
+                                <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
+                                    Rideshare Class Action Lawsuits
+                                </MenuItem>
+                                <MenuItem value="Other" sx={{ textAlign: 'left' }}>
+                                    Other
+                                </MenuItem>
+                            </TextField>
+
+
                         </div>
                     </div>
 
@@ -585,11 +662,11 @@ function ContactUs() {
                                 <label htmlFor="privacyConsent" className="ml-3 block text-white text-lg text-left">
                                     <span className="block">
                                         I agree to the{' '}
-                                        <a href="/privacy-policy" className="underline hover:text-blue-200">
+                                        <a href="/Privacypolicy" className="underline hover:text-blue-200">
                                             privacy policy
                                         </a>{' '}
                                         and{' '}
-                                        <a href="/disclaimer" className="underline hover:text-blue-200">
+                                        <a href="/Disclaimer" className="underline hover:text-blue-200">
                                             disclaimer
                                         </a>{' '}
                                         and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list.
@@ -652,56 +729,8 @@ function ContactUs() {
 
             <div className="bg-[#023437] py-10 px-6 w-full absolute mt-[164%]">
                 <div className="border-t border-[#023437] mb-10"></div>
-                <div className="bg-[#023437] py-10 px-6 w-full mt-0">
 
-                    {/* Mobile Layout */}
-                    <div className="md:hidden flex flex-col items-center">
-                        <div className="flex items-center mb-8">
-                            <img src={Frame} alt="" />
-                        </div>
-                        <div className='flex gap-2 ml-32'>
-                            <button class="inline-flex h-[39px] px-6 py-[10px] justify-center items-center flex-shrink-0 rounded-[40px] text-[#FFFBF3] font-open-sans text-sm font-bold bg-[#C09F53]">Join Us</button>
-                            <button class="text-[#FFFBF3] font-['Open_Sans'] text-sm font-bold not-italic leading-none flex w-32 h-[39px] px-6 py-[10px] justify-center items-center shrink-0 rounded-[40px] border border-[rgba(255,251,243,0.8)]">
-                                Know More
-                            </button>
-                        </div>
-
-
-                    </div>
-
-                    {/* Desktop Layout */}
-                    <div className="hidden md:block max-w-6xl mx-auto">
-                        <div className="flex flex-row items-center justify-between">
-                            <div className="flex items-center gap-4">
-                                <img src={Frame2} alt="" className='w-[150px] h-[150px] ml-[-20%]' />
-                                <h2 className="text-white font-['Playfair_Display'] text-[80px] font-bold leading-[90px] w-[479px]">
-                                    Let's work<br />together
-                                </h2>
-                            </div>
-
-                            <div className="flex flex-row gap-6">
-                                <div className="flex flex-col justify-center items-center gap-6 w-[360px] p-[107px_62px] border border-white border-opacity-40">
-                                    <p className="text-white text-center font-open-sans text-[32px] font-semibold leading-[35px] w-[236px] mb-8">
-                                        Looking to hire<br />a lawyer?
-                                    </p>
-                                    <button className="flex h-[52px] px-8 py-2 justify-center items-center rounded-[60px] bg-[#C09F53] hover:bg-amber-600 text-white text-center font-open-sans text-[20px] font-semibold leading-[35px] transition-colors">
-                                        Let's Talk
-                                    </button>
-                                </div>
-
-                                <div className="flex flex-col justify-center items-center gap-6 w-[360px] p-[107px_62px] border border-white border-opacity-40">
-                                    <p className="text-white text-center font-open-sans text-[32px] font-semibold leading-[35px] w-[236px] mb-8">
-                                        Work with<br />Connect2Lawyer!
-                                    </p>
-                                    <button className="flex h-[52px] px-8 py-2 justify-center items-center rounded-[60px] bg-[#C09F53] hover:bg-amber-600 text-white text-center font-open-sans text-[20px] font-semibold leading-[35px] transition-colors">
-                                        Join Us
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
+                <HomeSeven />
                 <Footer />
 
             </div>

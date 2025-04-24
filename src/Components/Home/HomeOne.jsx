@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react';
+import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import banner from "../../assets/Frame 166.png";
 import frm from "../../assets/16_frm.mp4";
@@ -7,17 +7,33 @@ import l from "../../assets/L.png";
 import Vector from "../../assets/Vector.png";
 import Frame from "../../assets/Frame 260 (1).png";
 import { useMediaQuery } from 'react-responsive';
+import { useNavigate } from 'react-router-dom';
 
 function DesktopVersion() {
   const animationDuration = 4.5 + 0.3;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+  const navigate = useNavigate();
+  
+  const handleClick = () => {
+    navigate('/');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  const handleConsultationClick = () => {
+    window.scrollTo({
+        top: 2900,
+        left: 0,
+        behavior: 'smooth'
+    });
+};
   return (
     <div className="relative min-h-screen">
       <div>
         <motion.div
           initial={{ x: 750, y: 190 }}
           animate={{
-            x: 1420,
+            x: 1520,
             y: window.innerHeight - 280
           }}
           transition={{
@@ -88,7 +104,7 @@ function DesktopVersion() {
           zIndex: 10,
         }}
       >
-        <img src={Frame} alt="Phone Icon" className="w-[120px] h-[120px]" />
+        <img src={Frame} alt="Phone Icon" className="w-[120px] h-[120px]" onClick={handleConsultationClick}/>
       </motion.div>
 
       <div className="relative w-full max-w-[1404px] aspect-[1404/606] ml-16 mt-[90px] overflow-hidden">
@@ -108,7 +124,9 @@ function DesktopVersion() {
 
 function MobileVersion() {
   const animationDuration = 3.5 + 0.3;
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div className="relative min-h-screen overflow-hidden mt-4">
       <div className="relative">
@@ -153,15 +171,35 @@ function MobileVersion() {
         </motion.div>
       </div>
 
+      <motion.div
+        initial={{ x: -700, y: 180, opacity: 0 }}
+        animate={{ x: -700, y: 30, opacity: 1 }}
+        transition={{
+          duration: 1.5,
+          ease: [0.16, 2, 0.9, 1],
+          delay: animationDuration
+        }}
+        className="absolute bottom-1/4 left-1/2 transform -translate-x-1/2 text-left w-[786px] text-[#FFFBF3] font-['Playfair_Display'] text-[128px] font-extrabold"
+        style={{
+          zIndex: 10,
+          fontStyle: 'normal'
+        }}
+      >
+        <h1 className="mb-4 mt-[-10%] ml-[70%] absolute text-left  text-[#FFFBF3] font-['Playfair_Display'] text-[40px] font-bold ">Your Case <br></br> Our Priority</h1>
+        <p className='text-[#FFFBF3] font-["Open_Sans"] text-[14px] font-normal  w-[245px] mt-5 ml-[70%]'>
+          We match you with the right legal expertise to ensure your rights are protected and your voice is heard.
+        </p>
+      </motion.div>
+
       <div className="relative w-full aspect-[9/16] mt-12 overflow-hidden">
-      <video
+        <video
           autoPlay
           muted
           loop
           playsInline
           className="absolute top-0 left-0 w-full h-full object-cover scale-105"
         >
-          <source src={frm} type="video/mp4" />
+          <source src={frm} type="video/mp4"  />
         </video>
       </div>
     </div>

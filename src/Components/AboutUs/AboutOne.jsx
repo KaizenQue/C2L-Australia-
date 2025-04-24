@@ -49,42 +49,6 @@ function AboutOne() {
                         alt="About Us"
                         className="h-full object-cover mt-[-10%] w-full"
                     />
-
-                    {/* <div className="fixed top-0 left-0 w-full bg-transparent z-[1000] hidden md:block">
-                        <div className="flex items-center justify-between p-3 px-[30px] bg-white w-full">
-                            <div>
-                                <img
-                                    src={Frame}
-                                    alt="Logo"
-                                    className="w-[300px] h-[50px] ml-10"
-                                />
-                            </div>
-
-                            <div className="flex items-center mr-10">
-                                <img
-                                    src={Searchbar}
-                                    alt="Search"
-                                    className="w-[60px] h-[60px] mr-2"
-                                />
-
-                                <button
-                                    className="flex items-center justify-center bg-[#C09F53] rounded-[60px] px-5 py-3 cursor-pointer ml-6 border border-white"
-                                    onClick={() => navigate('/ClaimForm')}
-                                >
-                                    <span className="font-sans font-bold text-base text-white">
-                                        Free Consultation
-                                    </span>
-                                </button>
-
-                                <button
-                                    className="flex px-7 py-3 justify-center items-center rounded-[60px] border border-[#023437] text-[#023437] font-sans text-base font-bold cursor-pointer ml-6"
-                                    onClick={() => setIsMenuOpen(!isMenuOpen)}
-                                >
-                                    {isMenuOpen ? 'Close' : 'Menu'}
-                                </button>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </div>
 

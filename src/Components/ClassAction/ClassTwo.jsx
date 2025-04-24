@@ -9,7 +9,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useMediaQuery, MenuItem } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
 
-function SubTwo() {
+function ClassTwo() {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('md'));
 
@@ -172,7 +172,7 @@ function SubTwo() {
 
     const renderDesktopView = () => (
         <div>
-            <div className='w-full h-full'>
+            <div className='w-full h-full '>
                 <img src={Frame} alt="Phone Icon" />
             </div>
             <div className='absolute z-10 w-full h-full mt-[-60%]'>
@@ -241,6 +241,8 @@ function SubTwo() {
                                         marginBottom: '60px'
                                     }}
                                 />
+
+
                                 <TextField
                                     id="concern"
                                     name="concern"
@@ -272,6 +274,8 @@ function SubTwo() {
                                         Other
                                     </MenuItem>
                                 </TextField>
+
+
                             </div>
                         </div>
 
@@ -302,7 +306,7 @@ function SubTwo() {
                                         onChange={handleChange}
                                         className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                     />
-                                    <label htmlFor="settlementHelp" className="ml-3 block text-lg text-left">
+                                    <label htmlFor="settlementHelp" className="ml-3 block text-lg">
                                         I would be needing help to file a settlement.
                                     </label>
                                 </div>
@@ -322,11 +326,11 @@ function SubTwo() {
                                     <label htmlFor="privacyConsent" className="ml-3 block text-white text-lg text-left">
                                         <span className="block">
                                             I agree to the{' '}
-                                            <a href="/PrivacyPolicy" className="underline hover:text-blue-200">
+                                            <a href="/privacy-policy" className="underline hover:text-blue-200">
                                                 privacy policy
                                             </a>{' '}
                                             and{' '}
-                                            <a href="/Disclaimer" className="underline hover:text-blue-200">
+                                            <a href="/disclaimer" className="underline hover:text-blue-200">
                                                 disclaimer
                                             </a>{' '}
                                             and give my express written consent, affiliates and/or lawyer to contact you at the number provided above, even if this number is a wireless number or if I am presently listed on a Do Not Call list.
@@ -410,8 +414,8 @@ ml-[-76%]
                         </div>
                     </div>
                 </div>
-                <form ref={formRef} onSubmit={handleSubmit} className='mb-5' >
-                    <div className="space-y-6 pt-32 p-5 mt-0">
+                <form ref={formRef} onSubmit={handleSubmit} className='mb-10' >
+                    <div className="space-y-6 pt-32 mb-10 p-5 mt-0">
                         <TextField
                             id="firstName"
                             name="firstName"
@@ -451,37 +455,38 @@ ml-[-76%]
                             sx={textFieldStyle}
                         />
 
-                        <TextField
-                            id="concern"
-                            name="concern"
-                            label="Select your concern"
-                            variant="standard"
-                            fullWidth
-                            select
-                            value={formData.concern}
-                            onChange={handleChange}
-                            error={!!errors.concern}
-                            helperText={errors.concern}
-                            sx={textFieldStyle}
-                            InputLabelProps={{
-                                sx: {
-                                    marginBottom: '80px', // adjust as needed
-                                },
-                            }}
-                        >
-                            <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
-                                Mesothelioma Lawsuit
-                            </MenuItem>
-                            <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
-                                Truck Accident Claims
-                            </MenuItem>
-                            <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
-                                Rideshare Class Action Lawsuits
-                            </MenuItem>
-                            <MenuItem value="Other" sx={{ textAlign: 'left' }}>
-                                Other
-                            </MenuItem>
-                        </TextField>
+<TextField
+                                    id="concern"
+                                    name="concern"
+                                    label="Select your concern"
+                                    variant="standard"
+                                    fullWidth
+                                    select
+                                    value={formData.concern}
+                                    onChange={handleChange}
+                                    error={!!errors.concern}
+                                    helperText={errors.concern}
+                                    sx={textFieldStyle}
+                                    InputLabelProps={{
+                                        sx: {
+                                            marginBottom: '80px', // adjust as needed
+                                        },
+                                    }}
+                                >
+                                    <MenuItem value="Mesothelioma Lawsuit" sx={{ textAlign: 'left' }}>
+                                        Mesothelioma Lawsuit
+                                    </MenuItem>
+                                    <MenuItem value="Truck Accident Claims" sx={{ textAlign: 'left' }}>
+                                        Truck Accident Claims
+                                    </MenuItem>
+                                    <MenuItem value="Rideshare Class Action Lawsuits" sx={{ textAlign: 'left' }}>
+                                        Rideshare Class Action Lawsuits
+                                    </MenuItem>
+                                    <MenuItem value="Other" sx={{ textAlign: 'left' }}>
+                                        Other
+                                    </MenuItem>
+                                </TextField>
+
                         <TextField
                             id="caseHistory"
                             name="caseHistory"
@@ -496,16 +501,16 @@ ml-[-76%]
                         />
 
                         <div className="mt-8 space-y-6 text-white">
-                            <div className="flex items-start mt-4">
+                            <div className="flex items-start">
                                 <input
                                     type="checkbox"
                                     id="settlementHelp"
                                     name="settlementHelp"
                                     checked={formData.settlementHelp}
                                     onChange={handleChange}
-                                    className="h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
+                                    className="mt-1 h-5 w-5 rounded border-gray-300 text-indigo-600 focus:ring-indigo-500"
                                 />
-                                <label htmlFor="settlementHelp" className="ml-3 block text-base text-left">
+                                <label htmlFor="settlementHelp" className="ml-3 block text-base">
                                     I would be needing help to file a settlement.
                                 </label>
                             </div>
@@ -562,13 +567,15 @@ ml-[-76%]
                         </div>
                     </div>
 
+
+
                     <button
                         type="submit"
                         disabled={isSubmitting}
                         className="
-                            w-[250px]
-                            ml-[15%]
-                            h-14  
+                            w-full
+                            h-14                     
+                            mt-8
                             justify-center
                             items-center
                             gap-2
@@ -596,4 +603,4 @@ ml-[-76%]
     return isMobile ? renderMobileView() : renderDesktopView();
 }
 
-export default SubTwo;
+export default ClassTwo;

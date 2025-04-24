@@ -1,10 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Frame from "../../assets/Frame 263.png"
-import arrow from "../../assets/Frame 158.png"
+import arrow from "../../assets/smallarrow.png"
 import Fram from "../../assets/box.png"
 import Frames from "../../assets/Frame 172 (1).png"
+import { useNavigate } from 'react-router-dom';
 
 function AboutTwo() {
+    const navigate = useNavigate();
+    useEffect(() => {
+        window.scrollTo(0, 0); 
+    }, []);
     return (
         <div className="w-full overflow-hidden">
             {/* Desktop Version */}
@@ -37,17 +42,18 @@ function AboutTwo() {
                             Finding the right lawyer has never been easier.
                             Take a moment to explore our website today and connect with a dedicated attorney who will protect your rights.
                         </p>
-                        <button className="inline-flex justify-center items-center px-8 py-3 rounded-[60px] border border-[rgba(2,52,55,0.61)] text-[#023437] font-sans text-lg font-medium whitespace-nowrap ml-8 mr-16">
+                        <button className="inline-flex justify-center items-center px-8 py-3 rounded-[60px] border border-[rgba(2,52,55,0.61)] text-[#023437] font-sans text-lg font-medium whitespace-nowrap ml-8 mr-16" onClick={() => navigate('/ContactUs')}>
                             Contact Us
                         </button>
                     </div>
                 </div>
-                <div className="rounded-lg w-[1330px] ml-[10%]">
-                    <img src={arrow} alt="" />
-                    <p className="text-[#EFE4CB] font-sans text-[36px] font-bold leading-none ml-16 absolute z-10">
+                <div className="relative bg-[#023437] flex rounded-[60px] h-[100px] w-[1230px] ml-[10%]" onClick={() => navigate('/ContactUs')}>
+                    <p className="text-[#EFE4CB] font-sans text-[36px] font-bold leading-none ml-16 mt-[2%] mr-[13.8%]">
                         Fill out the free case review form now!
                     </p>
-                </div>
+                    <img src={arrow} alt="" className="h-[100px] w-[100px] mt-0 ml-[20%]" />
+
+                </div>                                   
             </div>
 
             {/* Mobile Version - unchanged from previous implementation */}
@@ -63,27 +69,27 @@ function AboutTwo() {
                     <div className="mt-8 space-y-8">
                         <div className="rounded-lg">
                             <img src={Fram} alt="" />
-                            <p className="text-[#FFFBF3] font-['Playfair_Display'] text-[28px] font-[800] leading-[10px] absolute z-10 mt-[-40%] ml-16">Expert Network</p>
-                            <p className="text-[#FFFBF3] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight w-[282px] ml-16">Our platform features a vast network of experienced lawyers, each vetted for their expertise and commitment to client success.</p>
+                            <p className="text-[#FFFBF3] font-['Playfair_Display'] text-[28px] font-[800] leading-[40px] absolute z-10 mt-[-50%] ml-16 w-[200px] h-auto">Expert Network</p>
+                            <p className="text-[#FFFBF3] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight ml-16 w-[240px] h-auto">Our platform features a vast network of experienced lawyers, each vetted for their expertise and commitment.</p>
                         </div>
 
 
-                        <div className="rounded-lg">
+                        <div className="rounded-lg px-2">
                             <img src={Frames} alt="" />
-                            <p className="text-[#023437] font-['Playfair_Display'] text-[28px] font-[800] leading-[10px] absolute z-10 mt-[-40%] ml-16">Transparent Insights</p>
-                            <p className="text-[#023437] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight w-[282px] ml-16">Access detailed lawyer profiles, client reviews, and success stories to make informed decisions.</p>
+                            <p className="text-[#023437] font-['Playfair_Display'] text-[28px] font-[800] leading-[40px] absolute z-10 mt-[-50%] ml-16 w-[230px] h-auto">Transparent Insights</p>
+                            <p className="text-[#023437] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight ml-16 w-[240px] h-auto">Access detailed lawyer profiles, client reviews, and success stories to make informed decisions.</p>
                         </div>
 
                         <div className="rounded-lg">
                             <img src={Fram} alt="" />
-                            <p className="text-[#FFFBF3] font-['Playfair_Display'] text-[28px] font-[800] leading-[10px] absolute z-10 mt-[-40%] ml-16">Seamless Connection</p>
-                            <p className="text-[#FFFBF3]  font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight w-[282px] ml-16">Our user-friendly interface allows for direct communication with your chosen legal professional, streamlining the initiation process.</p>
+                            <p className="text-[#FFFBF3] font-['Playfair_Display'] text-[28px] font-[800] leading-[40px] absolute z-10 mt-[-50%] ml-16 w-[230px] h-auto">Seamless Connection</p>
+                            <p className="text-[#FFFBF3]  font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight ml-16 w-[240px] h-auto">Our user-friendly interface allows for direct communication with your chosen legal professional.</p>
                         </div>
 
                         <div className="rounded-lg">
                             <img src={Frames} alt="" />
-                            <p className="text-[#023437]  font-['Playfair_Display'] text-[28px] font-[800] leading-[10px] absolute z-10 mt-[-40%] ml-16">Nationwide Reach</p>
-                            <p className="text-[#023437] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight w-[282px] ml-16">Serving clients across all major cities and regions in Australia, ensuring local expertise is always within reach.</p>
+                            <p className="text-[#023437]  font-['Playfair_Display'] text-[28px] font-[800] leading-[40px] absolute z-10 mt-[-50%] ml-16 w-[230px] h-auto">Nationwide Reach</p>
+                            <p className="text-[#023437] font-['Open Sans'] text-base font-[600] absolute z-10 mt-[-25%] leading-tight w-[240px] h-auto ml-16">Serving clients across all major cities and regions in Australia, ensuring local expertise is always within reach.</p>
                         </div>
                     </div>
                 </div>
@@ -93,21 +99,25 @@ function AboutTwo() {
                         Start Your Case Today
                     </h1>
                     <div className="mt-4">
-                        <p className="text-[#023437] font-sans text-base font-semibold leading-normal mb-4">
+                        <p className="text-[#023437] font-sans text-base font-semibold leading-normal mb-4 ">
                             Finding the right lawyer has never been easier.
                             Take a moment to explore our website today and connect with a dedicated attorney who will protect your rights.
                         </p>
-                        <button className="w-full text-center px-6 py-3 rounded-[60px] border border-[rgba(2,52,55,0.61)] text-[#023437] font-sans text-lg font-medium">
+                        <button className="w-full text-center px-6 py-3 rounded-[60px] border border-[rgba(2,52,55,0.61)] text-[#023437] font-sans text-lg font-medium" onClick={() => navigate('/ContactUs')}>
                             Contact Us
                         </button>
                     </div>
                 </div>
 
-                <div className="relative bg-[#023437] text-center rounded-[60px] h-[60px] mb-16 overflow-hidden w-[398px]">
-                    <p className="text-[#EFE4CB] font-sans text-lg font-bold leading-tight text-left ml-3 mt-3">
+                <div className="relative bg-[#023437] flex rounded-[60px] h-[60px] " onClick={() => navigate('/ContactUs')}>
+                    <p className="text-[#EFE4CB] font-sans text-[15px] font-bold leading-tight ml-5 mt-[3%]">
                         Fill out the free case review form now!
                     </p>
-                    <img src={arrow} className='w-[50px] absolute right-0 top-1/2 transform -translate-y-1/2' alt="" />
+                    <img
+                        src={arrow}
+                        className="h-[60px] w-[60px] mt-0 ml-[10%]"  // Adjust size and margin
+                        alt="Arrow icon"
+                    />
                 </div>
             </div>
 
