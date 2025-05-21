@@ -1,0 +1,11 @@
+.nav-link {
+    color: black; /* Default color */
+    text-decoration: none; /* Remove underline */
+    transition: color 0.3s ease; /* Smooth transition */
+  }
+  
+  /* Active link styling (when the link is clicked) */
+  .nav-link.active {
+    color: green; /* Active link color */
+    font-weight: bold; /* Optional: Make active link bold */
+  }

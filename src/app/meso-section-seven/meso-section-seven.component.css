@@ -1,0 +1,16 @@
+/* Ensure the carousel container hides overflow */
+.relative {
+  overflow: hidden;
+}
+
+/* Ensure each slide takes up the full width */
+.flex-shrink-0 {
+  flex-shrink: 0;
+  width: 100%;
+}
+
+/* Ensure the flex container does not wrap */
+.flex-nowrap {
+  flex-wrap: nowrap;
+}
+

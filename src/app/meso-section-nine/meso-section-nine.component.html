@@ -1,0 +1,176 @@
+<div class="flex flex-col md:flex-row h-auto md:h-auto mt-10">
+
+  <div class="basis-full md:basis-2/3 relative top-8 mt-80">
+    <div class="relative flex flex-col">
+      <div class="flex flex-col max-w-lg gap-10 md:gap-[60px] m-auto px-4 md:px-0 relative top-[40%] -translate-y-[40%]">
+        <div class="container mx-auto">
+          <div class="mb-6 md:mb-8">
+            <h1 class="text-4xl md:text-5xl font-medium text-black-100 leading-tight font-semibold">
+              Have Questions?<br>
+              We’ve Got Answers <br>
+            </h1>
+            <p class="mt-5 text-sm md:text-sm font-normal text-black-100 leading-tight">
+              Explore our FAQ to know more about mesothelioma,<br> legal rights, and compensation. If you still have <br>
+              questions, our team is here to help.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  
+
+  <div class="p-10 w-[100%]">
+    <div class="space-y-4">
+      <!-- Western Australia -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('wa')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">How do I know if I qualify for a mesothelioma lawsuit? </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['wa'], 'bg-gray-200': !expandedRegions['wa']}"
+            (mouseenter)="hoveredButton = 'wa'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'wa'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-up">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['wa']">
+          <p class="ml-5 text-black-800">
+            If you or a loved one has mesothelioma from asbestos exposure, you may be eligible. Key factors include your work history, exposure sources, and medical records.
+
+          </p>
+        </div>
+      </div>
+  
+      <!-- New South Wales -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('nsw')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">What compensation can I receive for a mesothelioma case? </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['nsw'], 'bg-gray-200': !expandedRegions['nsw']}"
+            (mouseenter)="hoveredButton = 'nsw'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'nsw'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['nsw']">
+          <p class="ml-5 text-black-800 justify-center">
+            You may receive compensation for medical bills, lost wages, pain, suffering, and wrongful death claims.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Victoria -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('vic')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">How long do I have to file a mesothelioma claim? </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['vic'], 'bg-gray-200': !expandedRegions['vic']}"
+            (mouseenter)="hoveredButton = 'vic'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'vic'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['vic']">
+          <p class="ml-5 text-black-800">
+            The time limit to file a lawsuit depends on your state’s statute of limitations. Typically, it ranges from 1 to 5 years after diagnosis. It’s best to act fast and consult a legal expert. 
+          </p>
+        </div>
+      </div>
+  
+      <!-- Queensland -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('qld')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">What happens after I submit my case for review? </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['qld'], 'bg-gray-200': !expandedRegions['qld']}"
+            (mouseenter)="hoveredButton = 'qld'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'qld'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['qld']">
+          <p class="ml-5 text-black-800">
+            Our legal team will assess your eligibility and connect you with a mesothelioma attorney then guide you through the process with no upfront cost.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('qld')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">What if the asbestos company is no longer in business? 
+            </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['qld'], 'bg-gray-200': !expandedRegions['qld']}"
+            (mouseenter)="hoveredButton = 'qld'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'qld'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['qld']">
+          <p class="ml-5 text-black-800">
+            Even if the responsible company has shut down, asbestos trust funds worth over $30 billion have been set up to compensate victims.
+          </p>
+        </div>
+      </div>
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-10 cursor-pointer" (click)="toggleRegion('qld')">
+          <div>
+            <h2 class="text-[24px] font-medium text-[#3A271C]" style="font-weight: 600;">Will I have to go to court?
+            </h2>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['qld'], 'bg-gray-200': !expandedRegions['qld']}"
+            (mouseenter)="hoveredButton = 'qld'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'qld'"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-chevron-down">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+        </div>
+        <div class="px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['qld']">
+          <p class="ml-5 ml-5 text-black-800">
+            A skilled mesothelioma lawyer will handle the legal process, negotiating on your behalf and guiding you if a trial becomes necessary.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

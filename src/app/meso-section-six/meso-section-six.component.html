@@ -1,0 +1,139 @@
+<div class="flex flex-col md:flex-row h-auto md:h-auto mt-10">
+
+  <!-- Left Section -->
+  <div class="basis-full md:basis-2/3 mt-8 md:mt-16">
+    <div class="relative flex flex-col">
+      <div class="flex flex-col max-w-lg gap-10 md:gap-[60px] m-auto px-4 md:px-0">
+        <div class="container mx-auto">
+          <div class="mb-6 md:mb-8">
+            <h1 class="text-3xl md:text-5xl font-medium text-black-100" style="font-weight: 600; line-height: 1.2;">
+              Regional Breakdown <br>
+              of Asbestos Legacy <br>
+              in Australia
+            </h1>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="p-4 md:p-10 w-full">
+    <div class="space-y-4">
+      <!-- Western Australia -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-6 md:p-10 cursor-pointer" (click)="toggleRegion('wa')">
+          <div>
+            <h2 class="text-xl md:text-2xl font-medium text-[#3A271C]" style="font-weight: 600;">Western Australia (WA)</h2>
+            <p class="text-base md:text-lg font-regular text-black-800 mt-1">- The Wittenoom Tragedy and Ongoing Concerns</p>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['wa'], 'bg-gray-200': !expandedRegions['wa']}"
+            (mouseenter)="hoveredButton = 'wa'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'wa'"
+          >
+            <img
+              [src]="expandedRegions['wa'] || hoveredButton === 'wa' ? 'assets/Frame 40.png' : 'assets/Frame 40 (2).png'"
+              width="32"
+              height="32"
+              alt="chevron-down"
+            />
+          </button>
+        </div>
+        <div class="px-4 md:px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['wa']">
+          <p class="text-black-800">
+            Wittenoom, Australia's most infamous asbestos mining town, operated from the 1930s until 1966, exposing thousands of workers and residents to deadly blue asbestos. As a result, many have developed serious asbestos-related diseases, including mesothelioma and asbestosis.
+          </p>
+        </div>
+      </div>
+  
+      <!-- New South Wales -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-6 md:p-10 cursor-pointer" (click)="toggleRegion('nsw')">
+          <div>
+            <h2 class="text-xl md:text-2xl font-medium text-[#3A271C]" style="font-weight: 600;">New South Wales (NSW)</h2>
+            <p class="text-base md:text-lg font-regular text-black-800 mt-1">- Urban Asbestos Exposure & James Hardie Scandal</p>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['nsw'], 'bg-gray-200': !expandedRegions['nsw']}"
+            (mouseenter)="hoveredButton = 'nsw'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'nsw'"
+          >
+            <img
+              [src]="expandedRegions['nsw'] || hoveredButton === 'nsw' ? 'assets/Frame 40.png' : 'assets/Frame 40 (2).png'"
+              width="32"
+              height="32"
+              alt="chevron-down"
+            />
+          </button>
+        </div>
+        <div class="px-4 md:px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['nsw']">
+          <p class="text-black-800">
+            New South Wales was a major hub for asbestos product manufacturing, with James Hardie Industries producing asbestos materials for decades. As a result, Sydney, Newcastle, and Wollongong have recorded high rates of mesothelioma due to the widespread use of asbestos in both industrial and residential construction.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Victoria -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-6 md:p-10 cursor-pointer" (click)="toggleRegion('vic')">
+          <div>
+            <h2 class="text-xl md:text-2xl font-medium text-[#3A271C]" style="font-weight: 600;">Victoria (VIC)</h2>
+            <p class="text-base md:text-lg font-regular text-black-800 mt-1">- Renovation Risks & Infrastructure Removal</p>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['vic'], 'bg-gray-200': !expandedRegions['vic']}"
+            (mouseenter)="hoveredButton = 'vic'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'vic'"
+          >
+            <img
+              [src]="expandedRegions['vic'] || hoveredButton === 'vic' ? 'assets/Frame 40.png' : 'assets/Frame 40 (2).png'"
+              width="32"
+              height="32"
+              alt="chevron-down"
+            />
+          </button>
+        </div>
+        <div class="px-4 md:px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['vic']">
+          <p class="text-black-800">
+            During Melbourne’s post-World War II housing boom, asbestos was commonly used in construction, creating a significant risk for renovators today. As a result, mesothelioma rates in Melbourne remain high, particularly among tradespeople and construction workers who experienced occupational exposure.
+          </p>
+        </div>
+      </div>
+  
+      <!-- Queensland -->
+      <div class="rounded-[2rem] border border-gray-200 shadow-sm bg-white overflow-hidden">
+        <div class="flex justify-between items-center p-6 md:p-10 cursor-pointer" (click)="toggleRegion('qld')">
+          <div>
+            <h2 class="text-xl md:text-2xl font-medium text-[#3A271C]" style="font-weight: 600;">Queensland (QLD)</h2>
+            <p class="text-base md:text-lg font-regular text-black-800 mt-1">- High-Risk in Older Public Housing and Cyclone-Damaged Areas</p>
+          </div>
+          <button
+            class="rounded-lg p-2 transition-colors"
+            [ngClass]="{'bg-lime-200': expandedRegions['qld'], 'bg-gray-200': !expandedRegions['qld']}"
+            (mouseenter)="hoveredButton = 'qld'"
+            (mouseleave)="hoveredButton = null"
+            [class.bg-lime-200]="hoveredButton === 'qld'"
+          >
+            <img
+              [src]="expandedRegions['qld'] || hoveredButton === 'qld' ? 'assets/Frame 40.png' : 'assets/Frame 40 (2).png'"
+              width="32"
+              height="32"
+              alt="chevron-down"
+            />
+          </button>
+        </div>
+        <div class="px-4 md:px-6 pb-6 overflow-hidden transition-all duration-300" *ngIf="expandedRegions['qld']">
+          <p class="text-black-800">
+            Queensland has a large number of older homes built with asbestos-containing materials, particularly in Brisbane, Cairns, and Townsville. As a result, Brisbane has recorded high rates of mesothelioma, largely linked to exposure in the construction and shipbuilding industries.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
